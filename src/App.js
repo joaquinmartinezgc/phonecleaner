@@ -12,7 +12,6 @@ import rrui from 'react-responsive-ui/style.css'
 
 import
 {
-
     MenuButton,
     Form,
     TextInput,
@@ -44,7 +43,7 @@ class App extends Component {
         super(props);
         this.state = {
             value: 'Paste here a list of numbers',
-            description: '',
+            single: '',
             country: ''
         };
 
@@ -87,11 +86,10 @@ class App extends Component {
             }}>
 
                 <div >
-
                     <Phone style={{
-                        align: "left",
+                        align: "center",
                         padding: "20px"
-                    }} placeholder="Enter here a phone number" value={""} onChange={phone => this.setState({phone})}/>
+                    }} placeholder="Enter here a phone number" value={this.state.single} onChange={phone => this.setState({phone})}/>
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
@@ -105,15 +103,19 @@ class App extends Component {
                             <textarea rows="4" cols="20" value={this.state.value} onChange={this.handleChange}/>
                         </p>
                         <div>
+
                         <Select
-                                   placeholder="Default country"
-                                   value={this.state.fruit}
-                                   onChange={fruit => this.setState({ fruit })}
+                                   placeholder="Default Country Code (if not detected)"
+                                   value={this.state.country}
+                                   onChange={country => this.setState({ country })}
                                    options=
                                    {[
-                                     { value: 'A', label: 'Apples' },
-                                     { value: 'O', label: 'Oranges' }
+                                     { value: 'NL', label: 'Netherlands' },
+                                     { value: 'ES', label: 'Spain' }
                                    ]}/>
+                        </div>
+                        <div>
+
                         </div>
 
                         <p>
@@ -122,17 +124,14 @@ class App extends Component {
                     </label>
                                         <input type="submit" value="Submit"/>
                 </form>
-
                 <div id="results"></div>
             </div>
         );
     }
 }
-
 export default App;
 
 class Results extends Component {
-
     render() {
         return (
             <div style={{
