@@ -114,13 +114,6 @@ class App extends Component {
                                      { value: 'ES', label: 'Spain' }
                                    ]}/>
                         </div>
-                        <div>
-
-                        </div>
-
-                        <p>
-                            <textarea value={this.state.country}></textarea>
-                        </p>
                     </label>
                                         <input type="submit" value="Submit"/>
                 </form>
