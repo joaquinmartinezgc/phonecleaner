@@ -84,7 +84,10 @@ class App extends Component {
             <div className="App" style={{
                 padding: "10px"
             }}>
-
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Exercise number one</h2>
+                </div>
                 <div >
                     <Phone style={{
                         align: "center",
@@ -99,20 +102,14 @@ class App extends Component {
                         }}>
                             OR
                         </p>
-                    </label>
-                    <Form action={this.handleSubmit}>
 
-                        <TextInput style={{
-                            align: "center",
-                            padding: "20px"
-                        }} multiline placeholder="Paste here a list of numbers" value={this.state.value} onChange={value => this.setState({value})}/>
+                    <Form onSubmit={this.handleSubmit}>
+
+                        <TextInput  multiline placeholder="Paste here a list of numbers" value={this.state.value} onChange={value => this.setState({value})}/>
 
                         <div>
 
-                            <Select style={{
-                                align: "center",
-                                padding: "20px"
-                            }} placeholder="Default Country Code (if not detected)" value={this.state.country} onChange={country => this.setState({country})} options={[
+                            <Select  placeholder="Default Country Code (if not detected)" value={this.state.country} onChange={country => this.setState({country})} options={[
                                 {
                                     value: 'NL',
                                     label: 'Netherlands'
@@ -123,9 +120,10 @@ class App extends Component {
                             ]}/>
                         </div>
 
-                        <Button buttonStyle={{}} submit value="Submit" className="rrui__button__button"> Clean List ></Button>
+                        <Button buttonStyle={{}} submit value="Submit" className="rrui__button"> Clean List ></Button>
 
                     </Form>
+                    </label>
                 </form>
                 <div id="results"></div>
             </div>
