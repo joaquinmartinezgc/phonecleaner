@@ -98,10 +98,15 @@ class App extends Component {
                             padding: "20px"
                         }}>
                             OR
-                        </p><Form>
+                        </p>
+                    </label>
+                    <Form action={this.handleSubmit}>
 
-                        <TextInput multiline placeholder="Paste here a list of numbers" value={this.state.value} onChange={value => this.setState({value})}/>
-</Form>
+                        <TextInput style={{
+                            align: "center",
+                            padding: "20px"
+                        }} multiline placeholder="Paste here a list of numbers" value={this.state.value} onChange={value => this.setState({value})}/>
+
                         <div>
 
                             <Select style={{
@@ -117,8 +122,10 @@ class App extends Component {
                                 }
                             ]}/>
                         </div>
-                    </label>
-                    <input type="submit" value="Submit"/>
+
+                        <Button buttonStyle={{}} submit value="Submit" className="rrui__button__button"> Clean List ></Button>
+
+                    </Form>
                 </form>
                 <div id="results"></div>
             </div>
