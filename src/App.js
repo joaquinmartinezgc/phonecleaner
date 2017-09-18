@@ -42,7 +42,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'Paste here a list of numbers',
+            value: '',
             single: '',
             country: ''
         };
@@ -98,24 +98,27 @@ class App extends Component {
                             padding: "20px"
                         }}>
                             OR
-                        </p>
-                        <p>
-                            <textarea rows="4" cols="20" value={this.state.value} onChange={this.handleChange}/>
-                        </p>
+                        </p><Form>
+
+                        <TextInput multiline placeholder="Paste here a list of numbers" value={this.state.value} onChange={value => this.setState({value})}/>
+</Form>
                         <div>
 
-                        <Select
-                                   placeholder="Default Country Code (if not detected)"
-                                   value={this.state.country}
-                                   onChange={country => this.setState({ country })}
-                                   options=
-                                   {[
-                                     { value: 'NL', label: 'Netherlands' },
-                                     { value: 'ES', label: 'Spain' }
-                                   ]}/>
+                            <Select style={{
+                                align: "center",
+                                padding: "20px"
+                            }} placeholder="Default Country Code (if not detected)" value={this.state.country} onChange={country => this.setState({country})} options={[
+                                {
+                                    value: 'NL',
+                                    label: 'Netherlands'
+                                }, {
+                                    value: 'ES',
+                                    label: 'Spain'
+                                }
+                            ]}/>
                         </div>
                     </label>
-                                        <input type="submit" value="Submit"/>
+                    <input type="submit" value="Submit"/>
                 </form>
                 <div id="results"></div>
             </div>
